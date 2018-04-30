@@ -15,9 +15,10 @@ app.use(morgan('combined'))
 app.use(cors())
 
 
-app.get('/status', (req, res) => {
+app.post('/register', (req, res) => {
+	console.log(req.body)
 	res.send({			// res.send detects js object and uses res.json internally
-		message: 'hello world'
+		message: `Hello ${req.body.email}! You have been registered. Password: ${req.body.password}`
 	})
 })
 
