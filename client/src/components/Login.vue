@@ -4,7 +4,7 @@
 			<div class="white elevation-2">
 				<!-- "flat" prop removes drop-shadow, "dense" prop makes height smaller -->
 				<v-toolbar flat dense class="primary" dark>
-					<v-toolbar-title>Register</v-toolbar-title>
+					<v-toolbar-title>Login</v-toolbar-title>
 				</v-toolbar>
 				<div class="text-xs-center pl-4 pr-4 pt-2 pb-2">
 					<v-text-field v-model="email" type="email" label="Email"></v-text-field>
@@ -12,7 +12,7 @@
 					<v-text-field v-model="password" label="Password"></v-text-field>
 					<br>
 					<div v-html="error" class="error"/>
-					<v-btn @click="register" color="primary">Register</v-btn>
+					<v-btn @click="login" color="primary">Login</v-btn>
 				</div>
 			</div>
 		</v-flex>
@@ -31,9 +31,9 @@ export default {
 		}
 	},
 	methods: {
-		async register () {
+		async login () {
 			try {
-				await AuthenticationService.register({
+				await AuthenticationService.login({
 					email: this.email,
 					password: this.password
 				})
